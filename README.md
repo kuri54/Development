@@ -1,2 +1,2 @@
 # jupyterlab
-Docker 管理用
+JupyterlabのDocker管理用

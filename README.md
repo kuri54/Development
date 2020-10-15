@@ -3,4 +3,6 @@
 フォルダを作ってそれぞれにDockerfileを置いていく \
 clone後に各フォルダに移動してからbuildするようにする予定
 
-Jupyterlab
+* Jupyterlab
+* UMAP
+* OpenSlide

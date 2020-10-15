@@ -6,3 +6,6 @@
 ## docker-compose.ymlを使う場合
 1. ```docker-compose up --build``` でbuildとrunを一気に行う
 2. ブラウザで```localhost:8888```にアクセス
+    > 自動的にローカルのworkが共有されている \
+    マウント先を変更したい場合はdocker-compose.ymlを変更し、 \
+    ```docker-compose up --build```

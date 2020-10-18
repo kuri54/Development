@@ -1,11 +1,12 @@
-## docker-compose.ymlを使わない場合
-1. ```docker build .```
-2. ```docker run -it -v <clone先のworkのパス>:/work -p 8888:8888 <image名>```
-3. ブラウザで```localhost:8888```にアクセス
-
-## docker-compose.ymlを使う場合
+## ATOMとリモート連携可能なdockerimage
 1. ```docker-compose up --build``` でbuildとrunを一気に行う
-2. ブラウザで```localhost:8888```にアクセス
-    > 自動的にローカルのworkが共有されている \
+　> 自動的にローカルのworkが共有されている \
     マウント先を変更したい場合はdocker-compose.ymlを変更し、 \
     ```docker-compose up --build```
+2. ATOMの設定変更 \
+[Hydrogenのリモート設定](https://blog.johannhuang.com/+Articles/analytics/20170825i) を参考にしてGatewaysの設定をする
+3. ATOMで操作したいファイルを開く
+4. ```⌘＋shift＋p``` でパレットを開く
+5. パレットでHydrogen: Connect To Remote Kernel を選択
+6. 2. で設定した名称を選択
+

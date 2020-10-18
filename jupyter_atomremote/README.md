@@ -8,5 +8,5 @@
 3. ATOMで操作したいファイルを開く
 4. ```⌘＋shift＋p``` でパレットを開く
 5. パレットでHydrogen: Connect To Remote Kernel を選択
-6. 2. で設定した名称を選択
+6. 2.で設定した名称を選択
 

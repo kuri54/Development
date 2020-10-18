@@ -25,5 +25,5 @@ RUN pip install jupyter_kernel_gateway
 # ディレクトリを戻す
 WORKDIR /
 
-# jupytelabが起動するようにしておく：上書き可能
+# jupytelabがATOMと連携可能なようにしておく：上書き可能
 CMD ["jupyter", "kernelgateway", "--KernelGatewayApp.ip=0.0.0.0", "--KernelGatewayApp.port=8888"]

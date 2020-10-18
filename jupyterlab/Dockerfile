@@ -24,5 +24,5 @@ RUN pip install --upgrade pip
 # ディレクトリを戻す
 WORKDIR /
 
-# jupytelabが起動するようにしておく：上書き可能
+# jupytelabが起動するようにする：上書き可能
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root", "--LabApp.token=''"]

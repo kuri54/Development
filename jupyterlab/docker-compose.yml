@@ -9,3 +9,4 @@ services:
       - '~/Desktop/work:/work'
     tty: true
     stdin_open: true
+    

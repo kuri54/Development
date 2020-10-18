@@ -1,6 +1,6 @@
 ## ATOMとリモート連携可能なdockerimage
 1. ```docker-compose up --build``` でbuildとrunを一気に行う
-　> 自動的にローカルのworkが共有されている \
+　 > 自動的にローカルのworkが共有されている \
     マウント先を変更したい場合はdocker-compose.ymlを変更し、 \
     ```docker-compose up --build```
 2. ATOMの設定変更 \

@@ -20,9 +20,10 @@ ENV PATH /opt/anaconda3/bin:$PATH
 
 # ついでにpipもインストールしておく
 RUN pip install --upgrade pip
+RUN pip install jupyter_kernel_gateway
 
 # ディレクトリを戻す
 WORKDIR /
 
 # jupytelabが起動するようにしておく：上書き可能
-CMD ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root", "--LabApp.token=''"]
+CMD ["jupyter", "kernelgateway", "--KernelGatewayApp.ip=0.0.0.0", "--KernelGatewayApp.port=8888"]

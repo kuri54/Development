@@ -19,8 +19,8 @@ RUN wget https://repo.continuum.io/archive/Anaconda3-2019.10-Linux-x86_64.sh && 
 ENV PATH /opt/anaconda3/bin:$PATH
 
 # ついでにpipもインストールしておく
-RUN pip install --upgrade pip
-RUN pip install jupyter_kernel_gateway
+RUN pip install --upgrade pip && pip install \
+    jupyter_kernel_gateway
 
 # ディレクトリを戻す
 WORKDIR /

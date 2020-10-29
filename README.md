@@ -5,6 +5,6 @@ clone後に各フォルダに移動してからbuildするようにする予定
 
 * Jupyterlab
 * jupyter_atomremote
-* UMAP （未着手）
+* UMAP
 * OpenSlide （未着手）
 * DeepLearning (Dockerfileのみ追加：未検証)

@@ -22,8 +22,12 @@ ENV PATH /opt/anaconda3/bin:$PATH
 RUN pip install --upgrade pip && pip install \
     jupyter_kernel_gateway
 
-# UMAPのインストール
-RUN conda install -y -c conda-forge umap-learn
+# UMAPと関連ファイルのインストール
+RUN conda install -y -c\
+    conda-forge umap-learn \
+    datashader \
+    holoviews \
+    bokeh
 
 # ディレクトリを戻す
 WORKDIR /

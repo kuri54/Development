@@ -3,9 +3,11 @@ version: '3'
 services:
   web:
     build: .
+    image: jupyter_remote
     ports:
       - '8888:8888'
     volumes:
       - '~/Desktop/work:/work'
+    container_name: jupyter_remote
     tty: true
     stdin_open: true

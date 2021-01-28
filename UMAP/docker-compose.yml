@@ -3,9 +3,11 @@ version: '3'
 services:
   web:
     build: .
+    image: umap
     ports:
       - '8888:8888'
     volumes:
       - '~/Desktop/work:/work'
+    container_name: umap
     tty: true
     stdin_open: true

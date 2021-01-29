@@ -3,6 +3,13 @@ FROM ubuntu:latest
 
 # 定型文と必要なパッケージのインストール
 RUN apt-get update && apt-get install -y \
+    # opencv-pythonに必要なパッケージ
+    libsm6 \
+    libxext6 \
+    libxrender-dev \
+    libglib2.0-0 \
+    libgl1-mesa-dev\
+    # 念の為入れとくパッケージ
     sudo \
     wget \
     vim
@@ -20,7 +27,9 @@ ENV PATH /opt/anaconda3/bin:$PATH
 
 # ついでにpipもインストールしておく
 RUN pip install --upgrade pip && pip install \
-    jupyter_kernel_gateway
+    jupyter_kernel_gateway \
+    opencv-python \
+    nibabel
 
 # ディレクトリを戻す
 WORKDIR /

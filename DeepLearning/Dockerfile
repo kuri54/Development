@@ -1,5 +1,5 @@
 # GPUを使うためのCUDAToolkitイメージ
-FROM nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04
+FROM nvidia/cuda:10.2-cudnn7-runtime-ubuntu18.04
 
 RUN apt-get update && apt-get install -y \
     sudo \
@@ -15,7 +15,8 @@ ENV PATH /opt/anaconda3/bin:$PATH
 RUN pip install --upgrade pip && pip install \
     keras==2.3 \
     scipy==1.4.1 \
-    tensorflow-gpu==2.1
+    tensorflow-gpu==2.1 \
+    torch torchvision torchaudio
 
 WORKDIR /
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root", "--LabApp.token=''"]

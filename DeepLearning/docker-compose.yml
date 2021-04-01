@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    image: deep-learning
+    ports:
+      - '8888:8888'
+    volumes:
+      - '~/Desktop/work:/work'
+      - '/Volumes/HDD/datasets:/datasets'
+    working_dir: /work/pytorch
+    container_name: pytorch_cpu
+    tty: true
+    stdin_open: true
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+          # 全てのGPUを使う設定
+          - capabilities: [gpu]
+          
+          # 複数のGPUを使用するときは上の1行をコメントアウトして、下の3行を有効に
+          # - driver: nvidia
+          #   device_ids: ['0']
+            # capabilities: [gpu]

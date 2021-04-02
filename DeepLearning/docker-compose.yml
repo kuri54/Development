@@ -10,7 +10,7 @@ services:
       - '~/Desktop/work:/work'
       - '/Volumes/HDD/datasets:/datasets'
     working_dir: /work/pytorch
-    container_name: pytorch_cpu
+    container_name: deep-learning
     tty: true
     stdin_open: true
 

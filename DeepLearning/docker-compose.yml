@@ -13,15 +13,10 @@ services:
     container_name: deep-learning
     tty: true
     stdin_open: true
-
     deploy:
       resources:
         reservations:
           devices:
-          # 全てのGPUを使う設定
-          - capabilities: [gpu]
-          
-          # 複数のGPUを使用するときは上の1行をコメントアウトして、下の3行を有効に
-          # - driver: nvidia
-          #   device_ids: ['0']
-            # capabilities: [gpu]
+          - driver: nvidia
+            device_ids: ['0']
+            capabilities: [gpu]

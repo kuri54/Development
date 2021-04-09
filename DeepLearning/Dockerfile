@@ -19,4 +19,4 @@ RUN pip install --upgrade pip && pip install \
     torch torchvision torchaudio
 
 WORKDIR /
-CMD ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root", "--LabApp.token=''"]
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root", "--no-browser"]

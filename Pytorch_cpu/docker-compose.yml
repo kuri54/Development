@@ -8,6 +8,8 @@ services:
       - '8888:8888'
     volumes:
       - '~/Desktop/work:/work'
+      - '/Volumes/HDD/datasets:/datasets'
+    working_dir: /work/pytorch_stanford_dogs
     container_name: pytorch_cpu
     tty: true
     stdin_open: true

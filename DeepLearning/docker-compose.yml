@@ -7,8 +7,8 @@ services:
     ports:
       - '8888:8888'
     volumes:
-      - '~/Desktop/work:/work'
-      - '/Volumes/HDD/datasets:/datasets'
+      - '<docker-compose.ymlからのパス>:/work'
+      - '<docker-compose.ymlからのパス>:/datasets'
     working_dir: /work/pytorch
     container_name: deep-learning
     tty: true

@@ -3,20 +3,26 @@ version: '3'
 services:
   web:
     build: .
-    image: deep-learning
+    image: kurita_10
+    shm_size: '126gb'
     ports:
       - '8888:8888'
+      - '6006:6006'
     volumes:
-      - '<docker-compose.ymlからのパス>:/work'
-      - '<docker-compose.ymlからのパス>:/datasets'
+      - '../work:/work'
+      - '../datasets:/datasets'
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/group:/etc/group:ro
     working_dir: /work/pytorch
-    container_name: deep-learning
+    container_name: kurita_10
     tty: true
     stdin_open: true
     deploy:
       resources:
         reservations:
           devices:
+          # 全てのGPUを使う設定
+          # - capabilities: [gpu]
           - driver: nvidia
             device_ids: ['0']
             capabilities: [gpu]

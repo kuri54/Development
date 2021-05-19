@@ -4,7 +4,8 @@ FROM nvidia/cuda:11.2.2-cudnn8-runtime-ubuntu18.04
 RUN apt-get update && apt-get install -y \
     sudo \
     wget \
-    vim
+    vim \
+    libgl1-mesa-dev
 WORKDIR /opt
 RUN wget https://repo.continuum.io/archive/Anaconda3-2019.10-Linux-x86_64.sh	&& \
     sh Anaconda3-2019.10-Linux-x86_64.sh -b -p /opt/anaconda3 && \
@@ -16,10 +17,11 @@ RUN pip install --upgrade pip && pip install \
     keras==2.3 \
     scipy==1.4.1 \
     tensorflow-gpu==2.1 \
-    comet_ml \
-    albumentationss \
+    comet_ml==3.9.1 \
+    albumentationss==0.5.2 \
     scikit-learn==0.24.2 \
-    torch==1.8.1+cu111 torchvision==0.9.1+cu111 torchaudio==0.8.1 -f https://download.pytorch.org/whl/torch_stable.html
+    torch==1.8.1+cu111 torchvision==0.9.1+cu111 torchaudio==0.8.1 -f https://download.pytorch.org/whl/torch_stable.html \
+    opencv-contrib-python
 
 # Non administrative username
 ENV USERNAME=kurita_10

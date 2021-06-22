@@ -18,7 +18,7 @@ RUN pip install --upgrade pip && pip install \
     scipy==1.4.1 \
     tensorflow-gpu==2.1 \
     comet_ml==3.9.1 \
-    albumentationss==0.5.2 \
+    albumentations==0.5.2 \
     scikit-learn==0.24.2 \
     torch==1.8.1+cu111 torchvision==0.9.1+cu111 torchaudio==0.8.1 -f https://download.pytorch.org/whl/torch_stable.html \
     opencv-contrib-python

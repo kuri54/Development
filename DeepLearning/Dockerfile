@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     vim \
     libgl1-mesa-dev
 WORKDIR /opt
-RUN wget https://repo.continuum.io/archive/Anaconda3-2019.10-Linux-x86_64.sh	&& \
+RUN wget https://repo.continuum.io/archive/Anaconda3-2019.10-Linux-x86_64.sh && \
     sh Anaconda3-2019.10-Linux-x86_64.sh -b -p /opt/anaconda3 && \
     rm -f Anaconda3-2019.10-Linux-x86_64.sh
 
@@ -21,13 +21,15 @@ RUN pip install --upgrade pip && pip install \
     albumentations \
     scikit-learn==0.24.2 \
     torch==1.8.1+cu111 torchvision==0.9.1+cu111 torchaudio==0.8.1 -f https://download.pytorch.org/whl/torch_stable.html \
-    opencv-contrib-python
+    opencv-contrib-python \
+    timm
 
 # Non administrative username
 ENV USERNAME=kurita_10
 
 # Add non administrative user
-RUN useradd -m ${USERNAME}
+RUN useradd -m ${USERNAME} && \
+echo ${USERNAME}:password | chpasswd
 
 # Add example group
 RUN groupadd -g 1003 kurita

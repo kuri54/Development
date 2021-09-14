@@ -1,0 +1,16 @@
+keras==2.3
+scipy==1.4.1
+tensorflow-gpu==2.1
+comet_ml
+albumentations
+scikit-learn==0.24.2
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==1.8.1+cu111
+-f https://download.pytorch.org/whl/torch_stable.html
+torchvision==0.9.1+cu111
+-f https://download.pytorch.org/whl/torch_stable.html
+torchaudio==0.8.1
+timm
+openslide-python
+autoviz
+ttach

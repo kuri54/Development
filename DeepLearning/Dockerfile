@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /opt
 
-RUN wget https://repo.continuum.io/archive/Anaconda3-2019.10-Linux-x86_64.sh	&& \
+RUN wget https://repo.continuum.io/archive/Anaconda3-2019.10-Linux-x86_64.sh && \
     sh Anaconda3-2019.10-Linux-x86_64.sh -b -p /opt/anaconda3 && \
     rm -f Anaconda3-2019.10-Linux-x86_64.sh
 
@@ -25,20 +25,18 @@ RUN pip install --upgrade pip && pip install opencv-contrib-python
 
 RUN pip install -r requirements.txt
 
-# Non administrative username
-ENV USERNAME=kurita_10
+ARG USER_NAME
+ARG GROUP_NAME
+ARG GID
+ARG UID
 
-# Add non administrative user
-RUN useradd -m ${USERNAME} && \
-echo ${USERNAME}:password | chpasswd
-
-# Add example group
-RUN groupadd -g 1003 kurita
-
-# Change user id and group id
-RUN usermod -u 1003 -g 1003 ${USERNAME}
+# Add non administrative user / Add example group / Change user id and group id
+RUN useradd -m ${USER_NAME} && \
+    echo ${USER_NAME}:password | chpasswd && \
+    groupadd -g ${GID} ${GROUP_NAME} && \
+    usermod -u ${UID} -g ${GID} ${USER_NAME}
 
 # Change user
-USER ${USERNAME}
+USER ${USER_NAME}
 
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root", "--no-browser", "--NotebookApp.token='jupyter'"]

@@ -1,22 +1,27 @@
-version: '3'
-
 services:
   web:
-    build: .
-    image: kurita_10
+    build:
+      context: .
+      args:
+        - USERNAME=${USERNAME}
+        - GROUPNAME=${GROUPNAME}
+        - UID=${UID}
+        - GID=${GID}
+    image: ${IMAGE_NAME}
     shm_size: '126gb'
-    ports:
-      - '8888:8888'
-      - '6006:6006'
+    # vscodeならportsの設定はいらない
+    # ports:
+    #   - '8888:8888'
     volumes:
       - '../work:/work'
-      - '../datasets:/datasets'
       - /etc/passwd:/etc/passwd:ro
       - /etc/group:/etc/group:ro
-    working_dir: /work/pytorch
-    container_name: kurita_10
+    working_dir: /work
+    container_name: ${IMAGE_NAME}
     tty: true
     stdin_open: true
+    environment:
+      - COMET_API_KEY
     deploy:
       resources:
         reservations:

@@ -1,20 +1,20 @@
 # GPUを使うためのCUDAToolkitイメージ
-FROM nvidia/cuda:11.2.2-cudnn8-runtime-ubuntu18.04
+FROM nvidia/cuda:11.4.1-cudnn8-runtime-ubuntu20.04
 
 RUN apt-get update && apt-get install -y \
     sudo \
     wget \
     vim \
     libgl1-mesa-dev \
-    build-essential \
-    openslide-tools \
-    python-openslide
+    build-essential
+    # openslide-tools \
+    # python-openslide
 
 WORKDIR /opt
 
-RUN wget https://repo.continuum.io/archive/Anaconda3-2019.10-Linux-x86_64.sh && \
-    sh Anaconda3-2019.10-Linux-x86_64.sh -b -p /opt/anaconda3 && \
-    rm -f Anaconda3-2019.10-Linux-x86_64.sh
+RUN wget https://repo.continuum.io/archive/Anaconda3-2020.11-Linux-x86_64.sh	&& \
+    sh Anaconda3-2020.11-Linux-x86_64.sh -b -p /opt/anaconda3 && \
+    rm -f Anaconda3-2020.11-Linux-x86_64.sh
 
 ENV PATH /opt/anaconda3/bin:$PATH
 
